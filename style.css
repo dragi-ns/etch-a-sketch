@@ -5,7 +5,6 @@
 }
 
 :root {
-    --animation-duration: .2s;
     --box-size: 2vw;
     --char-gap: 1vw;
     --box-gap: .25vw;
