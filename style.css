@@ -5,10 +5,10 @@
 }
 
 :root {
-    --cell-size: min(2vw, 2vh);
-    --cell-gap: min(.25vw, .25vh);
+    --cell-size: 2vw;
+    --cell-gap: .25vw;
     --cell-size-with-gap: calc(var(--cell-size) - var(--cell-gap));
-    --char-gap: min(1vw, 1vh);
+    --char-gap: 1vw;
 }
 
 body {
@@ -51,7 +51,7 @@ header {
 
 header .char .cell.marked {
     opacity: 0;
-    translate: transform3D(0, -100%, 0);
+    transform: translate3D(0, -100%, 0);
     background-color: black;
 }
 
