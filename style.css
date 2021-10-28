@@ -5,53 +5,62 @@
 }
 
 :root {
-    --box-size: 2vw;
-    --char-gap: 1vw;
-    --box-gap: .25vw;
+    --cell-size: min(2vw, 2vh);
+    --cell-gap: min(.25vw, .25vh);
+    --cell-size-with-gap: calc(var(--cell-size) - var(--cell-gap));
+    --char-gap: min(1vw, 1vh);
 }
 
 body {
+    background-color: #ececec;
+}
+
+header {
     padding: 1rem;
 }
 
-header .chars {
+.chars {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: var(--char-gap);
 }
 
-header .char {
+.char {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    flex-shrink: 0;
-    gap: var(--box-gap);
-    width: calc(var(--box-size) * 3);
-    height: calc(var(--box-size) * 5);
+    justify-content: center;
+    align-items: center;
+    gap: var(--cell-gap);
+    width: calc(var(--cell-size) * 3);
+    height: calc(var(--cell-size) * 5);
 }
 
-header .char .box {
-    width: calc(var(--box-size) - var(--box-gap));
-    height: calc(var(--box-size) - var(--box-gap));
+.char .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--cell-gap);
 }
 
-header .char .box.marked {
+.char .row .cell {
+    width: var(--cell-size-with-gap); 
+    height: var(--cell-size-with-gap);
+}
+
+header .char .cell.marked {
     opacity: 0;
+    translate: transform3D(0, -100%, 0);
     background-color: black;
 }
 
-@media screen and (min-width: 800px) {
+/* Prevent a logo from going too big */
+@media screen and (min-width: 600px) {
     :root {
-        --box-size: 16px;
-        --char-gap: 8px;
-        --box-gap: 2px;
-    }
-}
-
-@media screen and (max-width: 300px) {
-    :root {
-        --box-size: 6px;
-        --char-gap: 3px;
-        --box-gap: .75px;
+        --cell-size: 12px;
+        --cell-gap: 1.5px;
+        --cell-size-with-gap: calc(var(--cell-size) - var(--cell-gap));
+        --char-gap: 6px;
     }
 }
