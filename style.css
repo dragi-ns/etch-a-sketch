@@ -16,22 +16,18 @@ body {
 }
 
 header {
-    padding: 1rem;
+    padding: 1vw;
 }
 
 .chars {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: var(--char-gap);
 }
 
 .char {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     gap: var(--cell-gap);
     width: calc(var(--cell-size) * 3);
     height: calc(var(--cell-size) * 5);
@@ -39,8 +35,6 @@ header {
 
 .char .row {
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: var(--cell-gap);
 }
 
@@ -49,7 +43,7 @@ header {
     height: var(--cell-size-with-gap);
 }
 
-header .char .cell.marked {
+.char .cell.marked {
     opacity: 0;
     transform: translate3D(0, -100%, 0);
     background-color: black;
@@ -58,9 +52,16 @@ header .char .cell.marked {
 /* Prevent a logo from going too big */
 @media screen and (min-width: 600px) {
     :root {
-        --cell-size: 12px;
-        --cell-gap: 1.5px;
+        --cell-size: 1.5vw;
+        --cell-gap: .20vw;
         --cell-size-with-gap: calc(var(--cell-size) - var(--cell-gap));
-        --char-gap: 6px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    :root {
+        --cell-size: 1vw;
+        --cell-gap: .15vw;
+        --cell-size-with-gap: calc(var(--cell-size) - var(--cell-gap));
     }
 }
