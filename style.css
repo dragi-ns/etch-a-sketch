@@ -5,18 +5,23 @@
 }
 
 :root {
-    --cell-size: 2vw;
-    --cell-gap: .30vw;
-    --char-gap: 1vw;
+    --cell-size: 1.8vw;
+    --cell-gap: .35vw;
+    --char-gap: 1.5vw;
+    --grid-size: min(75vw, 75vh);
 }
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #ececec;
 }
 
 header {
-    padding: 1vw;
+    padding: max(2vw, 2vh);
+    margin-bottom: 2vh;
 }
+
+/* ANIMATED LOGO */
 
 .chars {
     display: flex;
@@ -46,11 +51,155 @@ header {
     background-color: black;
 }
 
-/* Prevent a logo from going too big */
+main {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: max(3vw, 3vh);
+    margin-bottom: 2vh;
+}
+
+/* CONTROLS */
+
+.controls {
+    width: var(--grid-size);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    row-gap: 2.5vh;
+}
+
+.control {
+    flex-shrink: 0;
+}
+
+#color-picker {
+    display: none;
+}
+
+.control button {
+    font-size: min(5vw, 5vh);
+    padding: min(3vw, 3vh);
+    background-color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: .50vw solid transparent;
+    /* https://getcssscan.com/css-box-shadow-examples */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: border-color .2s;
+}
+
+.control button span {
+    display: none;
+}
+
+.control button:hover,
+.control button.active {
+    border-color: black;
+}
+
+.info {
+    flex: 1 1 100%;
+    font-size: min(5vw, 5vh);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* DRAWING BOARD */
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    width: var(--grid-size);
+    height: var(--grid-size);
+    background-color: white;
+    /* https://getcssscan.com/css-box-shadow-examples */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.grid .row {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.grid .row .cell {
+    flex: 1 0 auto;
+    background-color: white;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transform: rotate(45deg);
+    font-size: 4rem;
+    transition: transform .2s;
+}
+
+footer a i {
+    color: black;
+}
+
+footer:hover {
+    transform: rotate(0deg);
+}
+
 @media screen and (min-width: 600px) {
     :root {
         --cell-size: 1.5vw;
+        --cell-gap: .30vw;
+    }
+    
+    .control button {
+        font-size: min(3.5vw, 5vh);
+        padding: min(2.5vw, 5vh);
+    }
+    
+    .info {
+        font-size: min(3.5vw, 5vh);
+    }
+}
+
+@media screen and (min-width: 850px) {
+    :root {
+        --cell-size: 1.2vw;
         --cell-gap: .25vw;
+        --char-gap: 1vw;
+    }
+    
+    .control button {
+        font-size: min(3vw, 5vh);
+        padding: min(2vw, 5vh);
+    }
+    
+    .info {
+        font-size: min(3vw, 5vh);
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .controls {
+        width: auto;
+        flex-direction: column;
+        align-items: initial;
+    }
+    
+    .controls button {
+        width: 100%;
+        font-size: 1.5vw;
+        padding: 1.1vw;
+    }
+    
+    .controls button span {
+        display: inline;
+    }
+    
+    .info {
+        width: auto;
+        font-size: 1.5vw;
     }
 }
 
@@ -58,5 +207,10 @@ header {
     :root {
         --cell-size: 1vw;
         --cell-gap: .20vw;
+    }
+    
+    .controls button,
+    .info {
+        font-size: 1vw;
     }
 }

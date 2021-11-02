@@ -5,6 +5,11 @@
         <title>Etch-a-Sketch | Odin Project</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
+              integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" 
+              crossorigin="anonymous" 
+              referrerpolicy="no-referrer">
     </head>
     <body>
         <header>
@@ -26,6 +31,50 @@
                 </div><!-- .chars -->
             </div><!-- .logo -->
         </header>
+        <main>
+            <div class="controls">
+                <div class="control">
+                    <button data-action="new-grid">
+                        <i class="fas fa-plus"></i>
+                        <span>New Grid</span>
+                    </button>
+                </div>
+
+                <div class="control">
+                    <button class="active" data-action="fill-black">
+                        <i class="fas fa-fill-drip"></i>
+                        <span>Black Fill</span>
+                    </button>
+                </div>
+
+                <div class="control">
+                    <button data-action="fill-random">
+                        <i class="fas fa-random"></i>
+                        <span>Random Fill</span>
+                    </button>
+                </div>
+
+                <div class="control">
+                    <button data-action="eraser">
+                        <i class="fas fa-eraser"></i>
+                        <span>Eraser</span>
+                    </button>
+                </div>
+
+                <div class="info">
+                    Grid size: <span id="grid-size">16x16</span>
+                </div>
+            </div><!-- .controls -->
+
+            <div class="grid"> </div><!-- .grid -->
+        </main>
+        <footer>
+            <p>
+                <a href="https://github.com/dragi-ns/odin-project-etch-a-sketch" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </p>
+        </footer>
         <script src="script.js"></script>
     </body>
 </html>
