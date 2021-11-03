@@ -135,7 +135,7 @@ footer {
     bottom: 0;
     left: 0;
     transform: rotate(45deg);
-    font-size: 4rem;
+    font-size: min(10vw, 10vh);
     transition: transform .2s;
 }
 
@@ -161,6 +161,10 @@ footer:hover {
     .info {
         font-size: min(3.5vw, 5vh);
     }
+
+    footer {
+        font-size: min(8vw, 8vh);
+    }
 }
 
 @media screen and (min-width: 850px) {
@@ -177,6 +181,10 @@ footer:hover {
     
     .info {
         font-size: min(3vw, 5vh);
+    }
+
+    footer {
+        font-size: min(6vw, 6vh);
     }
 }
 
